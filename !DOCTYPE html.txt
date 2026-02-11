@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNAVISTA | Capturando el Mundo, Creando el Futuro</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --turquesa: #32c5cf;
+            --fucsia: #ff007f;
+            --blanco-roto: #f1f5f9;
+            --negro-puro: #000000;
+            --gris-profundo: #0a0a0a;
+            --gris-tarjeta: #111827;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--negro-puro);
+            color: var(--blanco-roto);
+            overflow-x: hidden;
+        }
+
+        /* Patrón WAVE minimalista (zigzag) */
+        .wave-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15 L12.5 5 L25 15 L37.5 5 L50 15 L62.5 5 L75 15 L87.5 5 L100 15' fill='none' stroke='%2332c5cf' stroke-width='1' opacity='0.15'/%3E%3C/svg%3E");
+        }
+
+        /* Navbar Dinámico */
+        #navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(50, 197, 207, 0.2);
+        }
+
+        /* Enlaces Navbar */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--fucsia);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover { color: var(--fucsia); }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Botón CTA */
+        .btn-cta {
+            background-color: var(--fucsia);
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+        }
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.6);
+        }
+
+        /* Animaciones de Entrada */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tarjetas de Servicios */
+        .service-card {
+            background-color: var(--gris-tarjeta);
+            border: 1px solid rgba(50, 197, 207, 0.1);
+            transition: all 0.4s ease;
+        }
+        .service-card:hover {
+            border-color: var(--turquesa);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px -15px rgba(50, 197, 207, 0.3);
+        }
+
+        /* Portafolio Overlay */
+        .portfolio-overlay {
+            background: linear-gradient(to top, var(--turquesa) 0%, rgba(50, 197, 207, 0.4) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 0.95;
+        }
+
+        /* AI Chat Styles */
+        .ai-glow {
+            box-shadow: 0 0 20px rgba(50, 197, 207, 0.2);
+            border: 1px solid rgba(50, 197, 207, 0.3);
+        }
+        .loading-spinner {
+            border: 2px solid rgba(50, 197, 207, 0.1);
+            border-top: 2px solid var(--turquesa);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 py-6 px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="h-8 md:h-10">
+                <img src="LOGO UNAVISTA 2025 - SIMPLE.png" alt="UNAVISTA" class="h-full object-contain">
+            </a>
+
+            <div class="hidden md:flex space-x-12 items-center">
+                <a href="#servicios" class="nav-link text-[10px] font-black uppercase tracking-[0.25em]">Servicios</a>
+                <a href="#portafolio" class="nav-link text-[10px] font-black uppercase tracking-[0.25em]">Portafolio</a>
+                <a href="#ia-consultor" class="nav-link text-[10px] font-black uppercase tracking-[0.25em] text-turquesa">IA Consultor ✨</a>
+                <a href="#contacto" class="nav-link text-[10px] font-black uppercase tracking-[0.25em]">Contacto</a>
+            </div>
+
+            <button class="md:hidden text-turquesa"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Nueva imagen de fondo integrada -->
+        <div class="absolute inset-0 bg-[url('hero-bg.jpg.png')] bg-cover bg-center grayscale opacity-40"></div>
+        <div class="absolute inset-0 bg-black/80"></div>
+        <div class="absolute inset-0 wave-pattern opacity-20"></div>
+
+        <div class="container relative z-10 px-6 text-center">
+            <div class="reveal mb-12 flex justify-center">
+                <img src="LOGO UNAVISTA 2025 - SIMPLE.png" alt="UNAVISTA Logo" class="h-24 md:h-36 drop-shadow-2xl">
+            </div>
+
+            <h1 class="reveal text-5xl md:text-8xl font-black mb-8 uppercase tracking-tighter leading-[0.9]">
+                Capturando el <span class="text-turquesa">Mundo</span>,<br>
+                Creando el <span class="text-fucsia">Futuro</span>
+            </h1>
+            
+            <p class="reveal text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-14 font-light tracking-wide italic">
+                Soluciones visuales y tecnológicas de alta precisión impulsadas por IA.
+            </p>
+
+            <div class="reveal">
+                <a href="#ia-consultor" class="btn-cta px-12 py-5 rounded-full font-black uppercase text-xs tracking-[0.3em] inline-flex items-center gap-3">
+                    Configura tu Proyecto con IA ✨
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+            <i data-lucide="chevron-down" class="text-turquesa w-8 h-8"></i>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="py-32 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24 reveal">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase mb-6 tracking-tighter">Servicios <span class="text-turquesa">Core</span></h2>
+                    <div class="w-24 h-2 bg-fucsia"></div>
+                </div>
+                <p class="text-gray-500 mt-8 md:mt-0 font-medium text-right italic">Tecnología de precisión aplicada a la imagen.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Drone FPV -->
+                <div class="reveal service-card p-12 rounded-[2.5rem] group">
+                    <div class="text-turquesa mb-10 flex justify-center">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M4.5 4.5l3.5 3.5" />
+                            <path d="M16 16l3.5 3.5" />
+                            <path d="M19.5 4.5l-3.5 3.5" />
+                            <path d="M8 16l-3.5 3.5" />
+                            <circle cx="4.5" cy="4.5" r="1.5" />
+                            <circle cx="19.5" cy="4.5" r="1.5" />
+                            <circle cx="4.5" cy="19.5" r="1.5" />
+                            <circle cx="19.5" cy="19.5" r="1.5" />
+                            <path d="M12 9v-2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight text-center">Drone FPV 4K</h3>
+                    <p class="text-gray-500 mb-6 text-center text-sm leading-relaxed">Perspectivas dinámicas de alta velocidad para producciones de impacto.</p>
+                    <div class="flex flex-col items-center gap-4">
+                        <button class="btn-cta px-8 py-3 rounded-xl font-bold text-[9px] uppercase tracking-widest w-full">Saber Más</button>
+                    </div>
+                </div>
+
+                <!-- 360 -->
+                <div class="reveal service-card p-12 rounded-[2.5rem] group" style="transition-delay: 0.1s">
+                    <div class="text-turquesa mb-10 flex justify-center">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" stroke-dasharray="2 2" />
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M12 3a9 9 0 0 1 0 18" />
+                            <path d="M12 12l4.5 -4.5" opacity="0.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight text-center">Inmersión 360°</h3>
+                    <p class="text-gray-500 mb-6 text-center text-sm leading-relaxed">Tours virtuales interactivos que permiten explorar espacios con realismo total.</p>
+                    <div class="flex flex-col items-center gap-4">
+                        <button class="btn-cta px-8 py-3 rounded-xl font-bold text-[9px] uppercase tracking-widest w-full">Saber Más</button>
+                    </div>
+                </div>
+
+                <!-- 3D -->
+                <div class="reveal service-card p-12 rounded-[2.5rem] group" style="transition-delay: 0.2s">
+                    <div class="text-turquesa mb-10 flex justify-center">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 16l8 4l8-4l-8-4l-8 4z" />
+                            <path d="M4 12l8 4l8-4" opacity="0.4" />
+                            <path d="M12 12v-5" />
+                            <path d="M9 4h6l-3 3l-3-3z" />
+                            <path d="M12 20v-4" opacity="0.4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 uppercase tracking-tight text-center">Impresión 3D</h3>
+                    <p class="text-gray-500 mb-6 text-center text-sm leading-relaxed">Fabricación aditiva y prototipado rápido con materiales industriales.</p>
+                    <div class="flex flex-col items-center gap-4">
+                        <button class="btn-cta px-8 py-3 rounded-xl font-bold text-[9px] uppercase tracking-widest w-full">Saber Más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IA Consultor Section -->
+    <section id="ia-consultor" class="py-32 bg-black/95 relative overflow-hidden">
+        <div class="absolute inset-0 wave-pattern opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto bg-gris-tarjeta p-8 md:p-12 rounded-[3rem] ai-glow">
+                <div class="flex flex-col md:flex-row items-center gap-8 mb-10">
+                    <div class="w-20 h-20 bg-turquesa/10 rounded-2xl flex items-center justify-center text-turquesa shrink-0">
+                        <i data-lucide="brain-circuit" class="w-10 h-10"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-black uppercase tracking-tight mb-2">Consultor de Proyectos Inteligente ✨</h2>
+                        <p class="text-gray-400 font-medium">Describe tu idea y deja que nuestra IA diseñada por UNAVISTA te aseore sobre los mejores servicios para tu caso de éxito.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <textarea id="project-description" rows="4" 
+                        class="w-full bg-black/50 border border-white/10 rounded-2xl p-6 text-white focus:outline-none focus:border-turquesa transition-colors placeholder:text-gray-600"
+                        placeholder="Ej: Tengo un viñedo y quiero hacer un video promocional único que también sirva para que los clientes vean las bodegas desde casa..."></textarea>
+                    
+                    <button id="consult-btn" onclick="consultProject()" class="btn-cta w-full py-5 rounded-2xl font-black uppercase text-xs tracking-widest flex items-center justify-center gap-3">
+                        <span id="btn-text">Obtener Propuesta IA ✨</span>
+                        <div id="btn-loading" class="loading-spinner hidden"></div>
+                    </button>
+
+                    <div id="ia-response-container" class="hidden mt-10 p-8 bg-black/30 rounded-3xl border border-turquesa/20 animate-fade-in">
+                        <div class="flex items-center gap-3 mb-4 text-turquesa font-black uppercase text-[10px] tracking-widest">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                            Propuesta Recomendada
+                        </div>
+                        <div id="ia-response-text" class="text-gray-300 leading-relaxed font-light space-y-4">
+                            <!-- Response from Gemini will appear here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portafolio -->
+    <section id="portafolio" class="py-32 bg-[#050505] relative">
+        <div class="absolute inset-0 wave-pattern opacity-5"></div>
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-4xl md:text-5xl font-black uppercase mb-6">Nuestro <span class="text-turquesa">Portafolio</span></h2>
+                <div class="w-24 h-1 bg-turquesa mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Item 1 -->
+                <div class="reveal portfolio-item relative aspect-square overflow-hidden rounded-3xl cursor-pointer group">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col items-center justify-center p-8 text-black text-center">
+                        <h4 class="text-2xl font-black uppercase">Vuelo Dinámico</h4>
+                        <p class="text-[10px] font-black uppercase tracking-widest mt-2">FPV Drone</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="reveal portfolio-item relative aspect-square overflow-hidden rounded-3xl cursor-pointer group" style="transition-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1517502474097-f9b30659dadb?q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col items-center justify-center p-8 text-black text-center">
+                        <h4 class="text-2xl font-black uppercase">Resort Virtual</h4>
+                        <p class="text-[10px] font-black uppercase tracking-widest mt-2">Inmersión 360</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="reveal portfolio-item relative aspect-square overflow-hidden rounded-3xl cursor-pointer group" style="transition-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col items-center justify-center p-8 text-black text-center">
+                        <h4 class="text-2xl font-black uppercase">Componente X</h4>
+                        <p class="text-[10px] font-black uppercase tracking-widest mt-2">Impresión 3D</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-black py-24 border-t border-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <img src="LOGO UNAVISTA 2025 - SIMPLE.png" alt="UNAVISTA" class="h-10 mb-12 mx-auto opacity-80 hover:opacity-100 transition-opacity">
+            
+            <p class="text-gray-500 max-w-sm mx-auto mb-12 font-medium leading-relaxed italic">
+                Transformando la percepción visual a través de la innovación tecnológica constante.
+            </p>
+            
+            <div class="flex justify-center space-x-10 mb-16">
+                <!-- Enlace de Instagram -->
+                <a href="https://www.instagram.com/unavista360" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-turquesa transition-colors">
+                    <i data-lucide="instagram"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-fucsia transition-colors"><i data-lucide="linkedin"></i></a>
+                <!-- Email vinculado: contacto@unavista360.com -->
+                <a href="mailto:contacto@unavista360.com" class="text-gray-500 hover:text-white transition-colors">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+
+            <div class="pt-10 border-t border-white/5">
+                <p class="text-[9px] text-gray-800 font-black uppercase tracking-[0.5em]">
+                    &copy; 2025 UNAVISTA - CAPTURANDO EL MUNDO, CREANDO EL FUTURO
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar Iconos Lucide
+        lucide.createIcons();
+
+        // Gemini API Configuration
+        const apiKey = ""; // La clave se inyectará en tiempo de ejecución
+        const model = "gemini-2.5-flash-preview-09-2025";
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+        // Utility: Gemini API Call with Exponential Backoff
+        async function callGemini(prompt, systemInstruction = "") {
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            let delay = 1000;
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        return data.candidates?.[0]?.content?.parts?.[0]?.text || "No se pudo generar una respuesta.";
+                    }
+                } catch (error) {
+                    // Retry
+                }
+                await new Promise(resolve => setTimeout(resolve, delay));
+                delay *= 2;
+            }
+            throw new Error("Error al conectar con la IA tras varios intentos.");
+        }
+
+        // Consultor de Proyectos IA
+        async function consultProject() {
+            const description = document.getElementById('project-description').value.trim();
+            if (!description) {
+                alertCustom("Por favor, describe tu proyecto para que la IA pueda ayudarte.");
+                return;
+            }
+
+            const btnText = document.getElementById('btn-text');
+            const btnLoading = document.getElementById('btn-loading');
+            const responseContainer = document.getElementById('ia-response-container');
+            const responseText = document.getElementById('ia-response-text');
+
+            btnText.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+
+            const systemPrompt = "Eres el Consultor Inteligente de UNAVISTA. Tu objetivo es analizar la idea del cliente y recomendar una combinación estratégica de nuestros servicios: Drone FPV 4K, Fotografía 360 e Impresión 3D. Sé profesional, creativo y enfocado en la innovación tecnológica. Responde en español, usando un tono premium y estructurando la respuesta en párrafos cortos.";
+
+            try {
+                const result = await callGemini(`Analiza el siguiente proyecto y propón una solución integral usando servicios de UNAVISTA: ${description}`, systemPrompt);
+                
+                // Formatear un poco la respuesta
+                const formattedResult = result.split('\n').filter(p => p.trim()).map(p => `<p>${p}</p>`).join('');
+                
+                responseText.innerHTML = formattedResult;
+                responseContainer.classList.remove('hidden');
+                responseContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (error) {
+                alertCustom("Lo sentimos, hubo un problema al procesar tu propuesta. Por favor intenta de nuevo más tarde.");
+            } finally {
+                btnText.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
+            }
+        }
+
+        function alertCustom(message) {
+            // Reemplazo de alert() por un log o pequeño UI si fuera necesario
+            console.log("UNAVISTA IA:", message);
+            const msgBox = document.createElement('div');
+            msgBox.className = "fixed bottom-10 left-1/2 -translate-x-1/2 bg-fucsia text-white px-6 py-3 rounded-full z-[100] font-bold text-xs shadow-xl animate-bounce";
+            msgBox.innerText = message;
+            document.body.appendChild(msgBox);
+            setTimeout(() => msgBox.remove(), 3000);
+        }
+
+        // Control Navbar al Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            window.scrollY > 80 ? navbar.classList.add('scrolled') : navbar.classList.remove('scrolled');
+        });
+
+        // Revelación al Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Animación Inicial Hero
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('section:first-of-type .reveal').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('active'), i * 150);
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
