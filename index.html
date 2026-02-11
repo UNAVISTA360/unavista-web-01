@@ -246,7 +246,7 @@
         </div>
     </section>
 
-    <!-- IA Consultor -->
+    <!-- IA Consultor con Efecto Neón Lavanda -->
     <section id="ia-consultor" class="py-32 bg-black/95 relative overflow-hidden">
         <div class="absolute inset-0 wave-pattern opacity-10"></div>
         <div class="container mx-auto px-6 relative z-10">
@@ -266,14 +266,15 @@
                         class="w-full bg-black/40 border border-white/10 rounded-[2rem] p-8 text-white text-lg focus:outline-none focus:border-turquesa transition-all placeholder:text-gray-700"
                         placeholder="Ej: Deseo capturar un evento deportivo extremo con drones y ofrecer un tour virtual 360 del circuito..."></textarea>
                     
-                    <button id="consult-btn" onclick="consultProject()" class="btn-cta w-full py-6 rounded-[1.5rem] font-black uppercase text-sm tracking-[0.25em] flex items-center justify-center gap-4">
+                    <button id="consult-btn" onclick="consultProject()" class="btn-cta w-full py-6 rounded-[1.5rem] font-black uppercase text-sm tracking-[0.25em] flex items-center justify-center gap-4 group">
                         <span id="btn-text">Generar Propuesta IA ✨</span>
                         <div id="btn-loading" class="loading-spinner hidden"></div>
+                        <i data-lucide="zap" class="w-5 h-5 group-hover:scale-125 transition-transform"></i>
                     </button>
 
                     <div id="ia-response-container" class="hidden mt-12 p-10 bg-black/30 rounded-[3rem] border border-turquesa/20 animate-fade-in">
                         <div class="flex items-center gap-4 mb-8 text-turquesa font-black uppercase text-xs tracking-widest">
-                            <i data-lucide="zap" class="w-5 h-5 fill-turquesa/20"></i>
+                            <i data-lucide="sparkles" class="w-5 h-5 fill-turquesa/20"></i>
                             Propuesta Estratégica UNAVISTA
                         </div>
                         <div id="ia-response-text" class="text-gray-300 text-lg leading-relaxed font-light space-y-6"></div>
@@ -337,17 +338,12 @@
     <script>
         lucide.createIcons();
 
-        // --- CONFIGURACIÓN DE CLAVE DE API INCLUIDA ---
-        const apiKey = "gen-lang-client-0396779523"; 
+        // --- CONFIGURACIÓN DE CLAVE DE API ACTUALIZADA ---
+        const apiKey = "AIzaSyD_r3o-mgNmv-aAelpcHZf624WNuJUNrOs"; 
         const model = "gemini-2.5-flash-preview-09-2025";
         const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
         async function callGemini(prompt, systemInstruction = "") {
-            // Validación básica de API Key
-            if (!apiKey || apiKey === "") {
-                throw new Error("API_KEY_MISSING");
-            }
-
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
                 systemInstruction: { parts: [{ text: systemInstruction }] }
@@ -396,11 +392,7 @@
                 responseContainer.classList.remove('hidden');
                 responseContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } catch (error) {
-                if (error.message === "API_KEY_MISSING") {
-                    alertCustom("⚠️ Error de configuración: Clave de API no válida.");
-                } else {
-                    alertCustom("Error temporal en la IA. Inténtalo de nuevo.");
-                }
+                alertCustom("Error temporal en la IA o clave no válida. Inténtalo de nuevo.");
             } finally {
                 btnText.classList.remove('hidden');
                 btnLoading.classList.add('hidden');
