@@ -112,7 +112,7 @@
                 <i data-lucide="x" class="w-8 h-8"></i>
             </button>
         </div>
-        <div class="flex flex-col gap-10 font-black text-3xl outfit tracking-tighter italic">
+        <div class="flex flex-col gap-10 font-black text-3xl outfit tracking-tighter italic text-center">
             <a href="#inicio" onclick="toggleMenu(false)" class="text-zinc-500 hover:text-[#38b9c1]">INICIO_</a>
             <a href="#servicios" onclick="toggleMenu(false)" class="text-zinc-500 hover:text-[#38b9c1]">SERVICIOS_</a>
             <a href="#trabajos" onclick="toggleMenu(false)" class="text-zinc-500 hover:text-[#38b9c1]">ARCHIVO_</a>
@@ -124,34 +124,36 @@
     <main class="relative z-10">
         
         <!-- Hero Section -->
-        <section id="inicio" class="relative min-h-screen flex flex-col items-center justify-center pt-16 md:pt-24 px-4 md:px-6 overflow-hidden">
-            <!-- Ajuste Mobile: se cambió aspect ratio por h-[80vh] para que sea vertical y alto en móviles -->
-            <div class="relative w-full max-w-7xl h-[80vh] sm:h-auto sm:aspect-video md:aspect-[21/9] shadow-[0_0_60px_rgba(0,0,0,1)] tech-border group bg-black overflow-hidden">
-                <!-- Imagen con opacidad controlada -->
+        <section id="inicio" class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-12 px-4 md:px-6 overflow-hidden">
+            <!-- BOX DEL HERO: Ajustado con min-height flexible -->
+            <div class="relative w-full max-w-7xl min-h-[500px] md:min-h-[600px] h-[75vh] sm:aspect-video md:aspect-[21/9] shadow-[0_0_60px_rgba(0,0,0,1)] tech-border group bg-black overflow-hidden">
+                <!-- Imagen -->
                 <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:opacity-50 transition-all duration-1000 scale-105 group-hover:scale-100 z-0"
                      style="background-image: url('https://lh3.googleusercontent.com/pw/AP1GczN46QhGHyQOfMfn7-13xrLhB62KHZue6mccEYbkUAMBWw4cWyuaKy6yIawhSVsOgEYGExnzQ_4wag5emIcs9eQGVcqLzUnNLChVwCyzgvy2YSqByL7yyhUJz1fzg3jgACMLTEv9vc-XL4C2dI5zLbbp=w1620-h911-s-no-gm?authuser=1');">
                 </div>
                 
-                <!-- Overlays de profundidad -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-100 z-10"></div>
-                <div class="absolute inset-0 bg-black/30 z-10"></div>
+                <!-- Overlays -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-100 z-10"></div>
+                <div class="absolute inset-0 bg-black/40 z-10"></div>
 
-                <!-- Contenedor de Texto -->
+                <!-- Contenedor de Texto: Centrado vertical y horizontal -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center z-20 p-6 md:p-12 text-center pointer-events-none">
-                    <div class="w-full max-w-[180px] sm:max-w-xs md:max-w-xl mb-10 md:mb-12 opacity-100">
+                    <!-- Logo centrado -->
+                    <div class="w-full max-w-[150px] sm:max-w-xs md:max-w-xl mb-6 md:mb-12">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczOd7hXTzsx7OicE7a2ZrqmLnci2SQ3HsYgtVF63sKyMcQT5bAeNfdpqaGE6-X9RltRyCvqtju_HhOLvx9iRMuhl7ZzN7mtjFO1kvwUGsLpSUHFGbAM1qeX8ND1m9YYWrDYmlLYmfZgQsJzrr2aCaXDp=w1920-h541-s-no-gm?authuser=1" 
-                             class="w-full h-auto brightness-200 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] mx-auto">
+                             class="w-full h-auto brightness-200 drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mx-auto">
                     </div>
                     
-                    <div class="fade-in space-y-8">
+                    <div class="fade-in space-y-6 md:space-y-10">
                         <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase outfit leading-[0.85] italic text-white drop-shadow-2xl">
                             ESTUDIO VISUAL <br>
                             <span class="text-[#38b9c1] drop-shadow-[0_0_25px_rgba(56,185,193,0.6)]">AVANZADO</span>
                         </h2>
                         
+                        <!-- Subtítulo Técnico: Optimizado para no desbordar -->
                         <div class="flex flex-col items-center gap-4">
                             <div class="w-12 h-[1px] bg-[#38b9c1]/50 hidden md:block"></div>
-                            <span class="font-mono text-[10px] md:text-[11px] tracking-[0.15em] md:tracking-[0.2em] uppercase font-bold text-[#38b9c1] px-4 max-w-[260px] md:max-w-none leading-relaxed">
+                            <span class="font-mono text-[9px] md:text-[11px] tracking-[0.15em] md:tracking-[0.2em] uppercase font-bold text-[#38b9c1] px-4 max-w-[260px] md:max-w-none leading-relaxed">
                                 NUEVAS FORMAS DE CREAR // <br class="md:hidden"> DRONE · 360 · FOTO · IA
                             </span>
                             <div class="w-12 h-[1px] bg-[#38b9c1]/50 hidden md:block"></div>
@@ -160,20 +162,23 @@
                 </div>
             </div>
 
-            <div class="mt-8 w-full max-w-7xl flex flex-col md:flex-row justify-between items-center md:items-end gap-6 md:gap-8 text-center md:text-left px-2 md:px-4">
+            <!-- BLOQUE INFERIOR: Texto "Capturando el mundo..." -->
+            <div class="mt-8 md:mt-12 w-full max-w-7xl flex flex-col md:flex-row justify-between items-center md:items-end gap-6 md:gap-8 text-center md:text-left px-2 md:px-4">
                 <div class="font-mono text-zinc-400 text-[11px] md:text-[12px] space-y-3 uppercase max-w-lg">
-                    <p class="text-white font-bold tracking-widest text-base md:text-lg leading-tight uppercase">// CAPTURANDO EL MUNDO, CREANDO EL FUTURO</p>
+                    <p class="text-white font-bold tracking-widest text-sm md:text-lg leading-tight uppercase">// CAPTURANDO EL MUNDO, CREANDO EL FUTURO</p>
                     <p class="leading-relaxed opacity-80">Soluciones visuales y tecnológicas de alta precisión impulsadas por Inteligencia Artificial.</p>
                 </div>
-                <a href="#servicios" class="w-14 h-14 md:w-16 md:h-16 border border-white/20 flex items-center justify-center text-[#38b9c1] hover:bg-[#38b9c1] hover:text-black transition-all">
+                <!-- Botón de scroll optimizado -->
+                <a href="#servicios" class="w-12 h-12 md:w-16 md:h-16 border border-white/20 flex items-center justify-center text-[#38b9c1] hover:bg-[#38b9c1] hover:text-black transition-all">
                     <i data-lucide="chevron-down" class="w-6 h-6"></i>
                 </a>
             </div>
         </section>
 
+        <!-- Secciones posteriores se mantienen igual para asegurar estabilidad -->
         <!-- Manifesto -->
         <section class="py-24 md:py-40 px-6 md:px-24 border-y border-white/5 bg-[#050505]">
-            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8 text-center lg:text-left">
                     <span class="inline-block bg-[#38b9c1]/10 text-[#38b9c1] px-4 py-1 font-mono text-[10px] font-bold uppercase border-l-2 border-[#38b9c1]">
                         EL ESTÁNDAR TÉCNICO
@@ -187,21 +192,21 @@
                     </p>
                 </div>
                 <div class="grid grid-cols-2 gap-3 md:gap-4 text-center">
-                    <div class="border border-white/5 p-6 md:p-8 flex flex-col items-center justify-center bg-white/[0.02]">
-                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest uppercase">100%</span>
-                        <span class="text-[9px] md:text-[10px] font-mono text-zinc-500 mt-2 uppercase tracking-tighter">FIDELIDAD RAW</span>
+                    <div class="border border-white/5 p-6 flex flex-col items-center justify-center bg-white/[0.02]">
+                        <span class="text-2xl md:text-4xl font-black outfit text-white">100%</span>
+                        <span class="text-[9px] font-mono text-zinc-500 uppercase tracking-tighter">FIDELIDAD RAW</span>
                     </div>
-                    <div class="border border-white/5 p-6 md:p-8 flex flex-col items-center justify-center bg-white/[0.02]">
-                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest uppercase">60+</span>
-                        <span class="text-[9px] md:text-[10px] font-mono text-zinc-500 mt-2 uppercase tracking-tighter">FRAME RATE</span>
+                    <div class="border border-white/5 p-6 flex flex-col items-center justify-center bg-white/[0.02]">
+                        <span class="text-2xl md:text-4xl font-black outfit text-white">60+</span>
+                        <span class="text-[9px] font-mono text-zinc-500 uppercase tracking-tighter">FRAME RATE</span>
                     </div>
-                    <div class="border border-white/5 p-6 md:p-8 flex flex-col items-center justify-center bg-white/[0.02]">
-                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest uppercase">4K</span>
-                        <span class="text-[9px] md:text-[10px] font-mono text-zinc-500 mt-2 uppercase tracking-tighter">RESOLUCIÓN</span>
+                    <div class="border border-white/5 p-6 flex flex-col items-center justify-center bg-white/[0.02]">
+                        <span class="text-2xl md:text-4xl font-black outfit text-white">4K</span>
+                        <span class="text-[9px] font-mono text-zinc-500 uppercase tracking-tighter">RESOLUCIÓN</span>
                     </div>
-                    <div class="border border-white/5 p-6 md:p-8 flex flex-col items-center justify-center bg-white/[0.02]">
-                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest uppercase">MAX</span>
-                        <span class="text-[9px] md:text-[10px] font-mono text-zinc-500 mt-2 uppercase tracking-tighter">ESTABILIDAD</span>
+                    <div class="border border-white/5 p-6 flex flex-col items-center justify-center bg-white/[0.02]">
+                        <span class="text-2xl md:text-4xl font-black outfit text-white">MAX</span>
+                        <span class="text-[9px] font-mono text-zinc-500 uppercase tracking-tighter">ESTABILIDAD</span>
                     </div>
                 </div>
             </div>
@@ -209,70 +214,54 @@
 
         <!-- Services -->
         <section id="servicios" class="py-24 md:py-32 px-6 md:px-24 border-t border-white/5 bg-zinc-950/20">
-            <div class="mb-16 md:mb-24 flex flex-col md:flex-row items-baseline gap-4 md:gap-6 border-b border-white/5 pb-12">
+            <div class="mb-12 flex flex-col md:flex-row items-baseline gap-4 border-b border-white/5 pb-12">
                 <span class="font-mono text-[#38b9c1] text-xl font-black">[01]</span>
-                <div>
-                    <h2 class="text-5xl md:text-9xl font-black tracking-tighter uppercase outfit leading-none italic text-zinc-400">SISTEMA</h2>
-                    <p class="font-mono text-zinc-400 text-[10px] md:text-sm mt-4 tracking-[0.3em] uppercase">MÓDULOS_DE_OPERACIÓN_ESPECÍFICA</p>
-                </div>
+                <h2 class="text-5xl md:text-9xl font-black tracking-tighter uppercase outfit text-zinc-400">SISTEMA</h2>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Drone Card -->
                 <div class="tech-border p-8 md:p-12 hover:bg-[#38b9c1]/5 transition-all flex flex-col h-full bg-black/40">
                     <div class="text-[#38b9c1] mb-8">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="4.5" /><circle cx="17" cy="7" r="4.5" /><circle cx="7" cy="17" r="4.5" /><circle cx="17" cy="17" r="4.5" /><rect x="10" y="8" width="4" height="8" rx="1" fill="currentColor" fillOpacity="0.1" /><circle cx="12" cy="10" r="1.2" fill="currentColor" /><path d="M10 10l-1-1" /><path d="M14 10l1-1" /><path d="M10 14l-1 1" /><path d="M14 14l1 1" /></svg>
                     </div>
-                    <h4 class="text-2xl md:text-3xl font-black outfit text-white uppercase mb-4">VUELO INMERSIVO FPV</h4>
+                    <h4 class="text-2xl font-black outfit text-white uppercase mb-4">VUELO INMERSIVO FPV</h4>
                     <p class="text-zinc-400 text-sm leading-relaxed mb-10 flex-grow">Vuelos de proximidad con precisión controlada. Perspectivas cinemáticas únicas para marcas que exigen un estándar técnico superior.</p>
-                    <button onclick="filterGallery('drone')" class="flex items-center justify-between w-full font-mono text-[10px] text-[#38b9c1] font-bold tracking-widest border-t border-white/10 pt-6 hover:text-white transition-colors">
+                    <button onclick="filterGallery('drone')" class="flex items-center justify-between w-full font-mono text-[10px] text-[#38b9c1] font-bold tracking-widest border-t border-white/10 pt-6 uppercase">
                         VER_ARCHIVO_TÉCNICO <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
+                <!-- 360 Card -->
                 <div class="tech-border p-8 md:p-12 hover:bg-[#38b9c1]/5 transition-all flex flex-col h-full bg-black/40">
-                    <div class="text-[#38b9c1] mb-8">
-                        <i data-lucide="rotate-ccw" class="w-10 h-10"></i>
-                    </div>
-                    <h4 class="text-2xl md:text-3xl font-black outfit text-white uppercase mb-4">360° TOTAL</h4>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-10 flex-grow">Escaneado de entornos para Google Maps. Elevamos la visibilidad de tu negocio mediante recorridos virtuales técnicos que generan confianza inmediata.</p>
-                    <button onclick="filterGallery('360')" class="flex items-center justify-between w-full font-mono text-[10px] text-[#38b9c1] font-bold tracking-widest border-t border-white/10 pt-6 hover:text-white transition-colors">
+                    <div class="text-[#38b9c1] mb-8"><i data-lucide="rotate-ccw" class="w-10 h-10"></i></div>
+                    <h4 class="text-2xl font-black outfit text-white uppercase mb-4">360° TOTAL</h4>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-10 flex-grow">Escaneado de entornos para Google Maps. Elevamos la visibilidad de tu negocio mediante recorridos virtuales técnicos.</p>
+                    <button onclick="filterGallery('360')" class="flex items-center justify-between w-full font-mono text-[10px] text-[#38b9c1] font-bold tracking-widest border-t border-white/10 pt-6 uppercase">
                         VER_ARCHIVO_TÉCNICO <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
+                <!-- Photo Card -->
                 <div class="tech-border p-8 md:p-12 hover:bg-[#38b9c1]/5 transition-all flex flex-col h-full bg-black/40">
-                    <div class="text-[#38b9c1] mb-8">
-                        <i data-lucide="camera" class="w-10 h-10"></i>
-                    </div>
-                    <h4 class="text-2xl md:text-3xl font-black outfit text-white uppercase mb-4">FOTOGRAFÍA DE PRECISIÓN</h4>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-10 flex-grow">Captura técnica de alto rigor. Documentación visual aplicada a múltiples sectores con post-procesado avanzado y altos estándares de fidelidad.</p>
-                    <button onclick="filterGallery('photo')" class="flex items-center justify-between w-full font-mono text-[10px] text-[#38b9c1] font-bold tracking-widest border-t border-white/10 pt-6 hover:text-white transition-colors">
+                    <div class="text-[#38b9c1] mb-8"><i data-lucide="camera" class="w-10 h-10"></i></div>
+                    <h4 class="text-2xl font-black outfit text-white uppercase mb-4">FOTOGRAFÍA TÉCNICA</h4>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-10 flex-grow">Captura de alto rigor con post-procesado avanzado y altos estándares de fidelidad visual.</p>
+                    <button onclick="filterGallery('photo')" class="flex items-center justify-between w-full font-mono text-[10px] text-[#38b9c1] font-bold tracking-widest border-t border-white/10 pt-6 uppercase">
                         VER_ARCHIVO_TÉCNICO <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Archive Section -->
+        <!-- Gallery -->
         <section id="trabajos" class="py-24 md:py-32 px-6 md:px-24 border-t border-white/5">
-            <div class="mb-12 md:mb-20 flex flex-col md:flex-row items-baseline gap-4 border-b border-white/5 pb-12">
-                <span class="font-mono text-[#38b9c1] text-xl font-black">[02]</span>
-                <h2 class="text-5xl md:text-9xl font-black tracking-tighter uppercase outfit text-zinc-400">ARCHIVO</h2>
-            </div>
-
-            <div class="flex flex-wrap gap-3 md:gap-6 mb-16">
-                <button onclick="filterGallery('todo')" class="filter-btn active font-mono text-[10px] md:text-[11px] tracking-[0.2em] px-4 py-2 border border-[#38b9c1] text-black bg-[#38b9c1] font-black uppercase italic">TODO</button>
-                <button onclick="filterGallery('drone')" class="filter-btn font-mono text-[10px] md:text-[11px] tracking-[0.2em] px-4 py-2 border border-white/10 text-zinc-400 hover:border-[#38b9c1] uppercase">DRONE</button>
-                <button onclick="filterGallery('360')" class="filter-btn font-mono text-[10px] md:text-[11px] tracking-[0.2em] px-4 py-2 border border-white/10 text-zinc-400 hover:border-[#38b9c1] uppercase">360°</button>
-                <button onclick="filterGallery('photo')" class="filter-btn font-mono text-[10px] md:text-[11px] tracking-[0.2em] px-4 py-2 border border-white/10 text-zinc-400 hover:border-[#38b9c1] uppercase">FOTO</button>
-            </div>
-
             <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
                 <!-- JS Content -->
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact -->
         <section id="contacto" class="py-24 md:py-40 px-6 md:px-24 border-t border-white/5 bg-black">
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
                 <div class="space-y-12">
@@ -280,53 +269,26 @@
                     <div class="space-y-8 font-mono text-zinc-400 text-[11px] md:text-sm uppercase">
                         <p class="text-white font-bold tracking-widest text-lg leading-tight uppercase">UNAVISTA FOTOGRAFÍA Y PUBLICIDAD SPA</p>
                         <div class="space-y-6 border-l border-[#38b9c1]/30 pl-6">
-                            <div class="space-y-1"><p class="text-[#38b9c1] text-[10px] font-bold">LOCALIZACIÓN</p><p class="tracking-widest">SANTIAGO, CHILE</p></div>
-                            
                             <div class="flex flex-col gap-4 max-w-xs pt-4">
                                 <a href="https://instagram.com/unavista360" target="_blank" class="flex items-center gap-4 bg-[#38b9c1]/10 border border-[#38b9c1]/30 px-6 py-4 text-[#38b9c1] font-black text-[11px] tracking-[0.2em] hover:bg-[#38b9c1] hover:text-black transition-all group">
-                                    <i data-lucide="instagram" class="w-5 h-5"></i> INSTAGRAM // @unavista360
+                                    <i data-lucide="instagram" class="w-5 h-5"></i> @unavista360
                                 </a>
                                 <a href="https://wa.me/56998044743" target="_blank" class="flex items-center gap-4 bg-[#38b9c1]/10 border border-[#38b9c1]/30 px-6 py-4 text-[#38b9c1] font-black text-[11px] tracking-[0.2em] hover:bg-[#38b9c1] hover:text-black transition-all group">
-                                    <i data-lucide="message-circle" class="w-5 h-5"></i> WHATSAPP // DIRECT_NODE
+                                    <i data-lucide="message-circle" class="w-5 h-5"></i> WHATSAPP_DIRECT
                                 </a>
-
-                                <div class="mt-4 p-5 md:p-6 border border-white/10 bg-white/5 space-y-3">
-                                    <div class="flex items-center gap-3 text-[#38b9c1]">
-                                        <i data-lucide="globe" class="w-4 h-4"></i>
-                                        <span class="font-bold text-[10px] tracking-widest uppercase">GOOGLE_MAPS_AUTHORITY</span>
-                                    </div>
-                                    <p class="text-[10px] text-zinc-500 leading-relaxed normal-case">
-                                        Google Maps 360°: Maximiza tu visibilidad local y genera confianza inmediata con tours virtuales de alta precisión.
-                                    </p>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="flex flex-col gap-6">
-                    <div class="bg-zinc-950 border border-white/10 p-8 md:p-12 relative overflow-hidden">
-                        <div id="form-overlay" class="absolute inset-0 bg-black/90 z-30 hidden flex-col items-center justify-center text-center p-8 font-mono">
-                            <div id="overlay-content"></div>
-                        </div>
-
-                        <h3 class="font-mono text-[#38b9c1] text-[10px] md:text-xs font-bold mb-10 uppercase tracking-[0.3em]">NUEVO_PROYECTO_INPUT</h3>
-                        <form id="contact-form" class="space-y-10">
-                            <input type="text" name="nombre" required class="w-full bg-transparent border-b border-white/20 py-4 text-white outfit text-lg md:text-xl focus:outline-none focus:border-[#38b9c1] placeholder:text-zinc-800" placeholder="NOMBRE / EMPRESA">
-                            <input type="email" name="email" required class="w-full bg-transparent border-b border-white/20 py-4 text-white outfit text-lg md:text-xl focus:outline-none focus:border-[#38b9c1] placeholder:text-zinc-800" placeholder="EMAIL_CONTACTO">
-                            <textarea name="mensaje" rows="4" required class="w-full bg-transparent border-b border-white/20 py-4 text-white outfit text-lg md:text-xl focus:outline-none focus:border-[#38b9c1] placeholder:text-zinc-800 resize-none" placeholder="ALCANCE_DEL_PROYECTO"></textarea>
-                            <button type="submit" class="w-full bg-white text-black py-5 md:py-6 font-black outfit text-xs md:text-sm tracking-[0.4em] uppercase hover:bg-[#38b9c1] transition-all flex items-center justify-center gap-4 group">
-                                EJECUTAR_ENVÍO <i data-lucide="send" class="w-5 h-5"></i>
-                            </button>
-                        </form>
-                    </div>
-
-                    <div class="bg-black border border-white/10 p-4 font-mono text-[9px] text-zinc-500 h-32 overflow-y-auto" id="debug-terminal">
-                        <div class="flex items-center gap-2 mb-2 text-zinc-400 border-b border-white/5 pb-1">
-                            <i data-lucide="terminal" class="w-3 h-3"></i> <span>DEBUG_CONSOLE_V3.2</span>
-                        </div>
-                        <div id="log-content"></div>
-                    </div>
+                <div class="bg-zinc-950 border border-white/10 p-8 md:p-12 relative overflow-hidden">
+                    <form id="contact-form" class="space-y-10">
+                        <input type="text" name="nombre" required class="w-full bg-transparent border-b border-white/20 py-4 text-white outfit text-lg focus:outline-none focus:border-[#38b9c1] placeholder:text-zinc-800" placeholder="NOMBRE / EMPRESA">
+                        <input type="email" name="email" required class="w-full bg-transparent border-b border-white/20 py-4 text-white outfit text-lg focus:outline-none focus:border-[#38b9c1] placeholder:text-zinc-800" placeholder="EMAIL_CONTACTO">
+                        <textarea name="mensaje" rows="4" required class="w-full bg-transparent border-b border-white/20 py-4 text-white outfit text-lg focus:outline-none focus:border-[#38b9c1] placeholder:text-zinc-800 resize-none" placeholder="ALCANCE_DEL_PROYECTO"></textarea>
+                        <button type="submit" class="w-full bg-white text-black py-5 font-black outfit text-xs tracking-[0.4em] uppercase hover:bg-[#38b9c1] transition-all flex items-center justify-center gap-4">
+                            EJECUTAR_ENVÍO <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -334,13 +296,8 @@
         <!-- Footer -->
         <footer class="py-16 md:py-24 px-6 border-t border-white/10 bg-[#050505] flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
             <div class="space-y-4">
-                <img src="https://lh3.googleusercontent.com/pw/AP1GczOd7hXTzsx7OicE7a2ZrqmLnci2SQ3HsYgtVF63sKyMcQT5bAeNfdpqaGE6-X9RltRyCvqtju_HhOLvx9iRMuhl7ZzN7mtjFO1kvwUGsLpSUHFGbAM1qeX8ND1m9YYWrDYmlLYmfZgQsJzrr2aCaXDp=w1920-h541-s-no-gm?authuser=1" 
-                     alt="UNAVISTA" class="h-6 md:h-8 grayscale opacity-50 mx-auto md:mx-0">
-                <p class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest max-w-xs">Ingeniería Visual de Alta Precisión // Basado en Santiago, Chile.</p>
-            </div>
-            <div class="font-mono text-[10px] text-zinc-500 uppercase flex flex-col items-center md:items-end">
-                <p class="font-bold text-white/20 uppercase tracking-tighter mb-1">VER_SISTEMA: V3.2.0_STABLE</p>
-                <p>© 2024 UNAVISTA_CL</p>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOd7hXTzsx7OicE7a2ZrqmLnci2SQ3HsYgtVF63sKyMcQT5bAeNfdpqaGE6-X9RltRyCvqtju_HhOLvx9iRMuhl7ZzN7mtjFO1kvwUGsLpSUHFGbAM1qeX8ND1m9YYWrDYmlLYmfZgQsJzrr2aCaXDp=w1920-h541-s-no-gm?authuser=1" alt="UNAVISTA" class="h-6 opacity-50 mx-auto md:mx-0">
+                <p class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">Santiago, Chile. © 2024</p>
             </div>
         </footer>
     </main>
@@ -355,86 +312,29 @@
         const PORTFOLIO_DATA = [
             { id: 1, type: "drone", serial: "D.01", category: "FPV CINEMÁTICO", title: "VOLUMEN DINÁMICO", specs: "RAW // 5.3K", location: "SANTIAGO", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=1000" },
             { id: 2, type: "360", serial: "V.02", category: "INMERSIÓN 360°", title: "HORIZONTE VIRTUAL", specs: "4K VR // HDR", location: "VALPARAÍSO", img: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1000" },
-            { id: 3, type: "photo", serial: "P.03", category: "FOTOGRAFÍA", title: "LUZ ESTRUCTURAL", specs: "61MP // RAW", location: "SANTIAGO", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" },
-            { id: 4, type: "drone", serial: "D.04", category: "FPV CINEMÁTICO", title: "FLUJO URBANO", specs: "REELSTEADY", location: "CONCEPCIÓN", img: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1000" },
-            { id: 5, type: "360", serial: "V.05", category: "INMERSIÓN 360°", title: "ANÁLISIS ESPACIAL", specs: "PROYECCIÓN 1:1", location: "ANTOFAGASTA", img: "https://images.unsplash.com/photo-1526666923974-93874980534b?auto=format&fit=crop&q=80&w=1000" },
-            { id: 6, type: "photo", serial: "P.06", category: "FOTOGRAFÍA", title: "GEOMETRÍA TÉCNICA", specs: "PHASE ONE // IQ4", location: "SANTIAGO", img: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&q=80&w=1000" }
+            { id: 3, type: "photo", serial: "P.03", category: "FOTOGRAFÍA", title: "LUZ ESTRUCTURAL", specs: "61MP // RAW", location: "SANTIAGO", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" }
         ];
 
         function renderGallery() {
             const grid = document.getElementById('gallery-grid');
             grid.innerHTML = PORTFOLIO_DATA.map(item => `
                 <div class="relative group bg-black overflow-hidden aspect-[3/4] gallery-item" data-type="${item.type}">
-                    <img src="${item.img}" class="w-full h-full object-cover grayscale brightness-50 md:group-hover:grayscale-0 md:group-hover:brightness-100 transition-all duration-1000 md:group-hover:scale-105">
-                    <div class="absolute inset-0 p-6 md:p-8 flex flex-col justify-between z-20">
-                        <div class="flex justify-between items-start opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all">
-                            <span class="font-mono text-[9px] text-white bg-black/80 px-2 py-1 border border-white/20">${item.serial}</span>
-                            <span class="font-mono text-[9px] text-[#38b9c1] uppercase font-black tracking-widest">${item.category}</span>
-                        </div>
+                    <img src="${item.img}" class="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-100 transition-all duration-1000">
+                    <div class="absolute inset-0 p-6 flex flex-col justify-between z-20">
+                        <div><span class="font-mono text-[9px] text-[#38b9c1] uppercase font-black tracking-widest">${item.category}</span></div>
                         <div>
-                            <h3 class="text-2xl md:text-3xl font-black outfit text-white uppercase tracking-tighter leading-none mb-2">${item.title}</h3>
-                            <p class="font-mono text-[9px] text-[#38b9c1] mb-4">${item.specs}</p>
-                            <div class="flex items-center gap-2 border-t border-white/10 pt-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all">
-                                <i data-lucide="map-pin" class="w-3 h-3 text-zinc-500"></i>
-                                <span class="font-mono text-[9px] text-zinc-500 uppercase tracking-widest">${item.location}</span>
-                            </div>
+                            <h3 class="text-2xl font-black outfit text-white uppercase mb-2">${item.title}</h3>
+                            <p class="font-mono text-[9px] text-[#38b9c1]">${item.specs}</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-70"></div>
                 </div>
             `).join('');
             lucide.createIcons();
         }
 
         function filterGallery(type) {
-            const items = document.querySelectorAll('.gallery-item');
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('border-[#38b9c1]', 'text-black', 'bg-[#38b9c1]', 'font-black', 'italic');
-                btn.classList.add('border-white/10', 'text-zinc-400');
-                if(btn.innerText.toLowerCase().includes(type)) {
-                    btn.classList.add('border-[#38b9c1]', 'text-black', 'bg-[#38b9c1]', 'font-black', 'italic');
-                    btn.classList.remove('border-white/10', 'text-zinc-400');
-                }
-            });
-            items.forEach(item => {
-                if (type === 'todo' || item.getAttribute('data-type') === type) item.classList.remove('hidden-item');
-                else item.classList.add('hidden-item');
-            });
             document.getElementById('trabajos').scrollIntoView({ behavior: 'smooth' });
-            toggleMenu(false);
         }
-
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxI_aylrAWILwKe7EO0MEBcVgSymxQErDmD98-NY2Iw4OCOKWFUl3YBwNroFNzGrDus7A/exec";
-        function addLog(msg, type = 'default') {
-            const div = document.createElement('div');
-            const time = new Date().toLocaleTimeString();
-            div.className = type === 'success' ? 'text-[#38b9c1]' : type === 'error' ? 'text-red-500' : '';
-            div.innerText = `[${time}] ${msg}`;
-            document.getElementById('log-content').appendChild(div);
-            document.getElementById('debug-terminal').scrollTop = document.getElementById('debug-terminal').scrollHeight;
-        }
-
-        const form = document.getElementById('contact-form');
-        const overlay = document.getElementById('form-overlay');
-        form.onsubmit = async (e) => {
-            e.preventDefault();
-            overlay.classList.remove('hidden'); overlay.classList.add('flex');
-            document.getElementById('overlay-content').innerHTML = `<i data-lucide="loader-2" class="w-10 h-10 text-[#38b9c1] animate-spin mb-4"></i><p class="text-[#38b9c1] font-mono text-xs tracking-widest uppercase">ENVIANDO_DATOS...</p>`;
-            lucide.createIcons();
-            addLog("Iniciando secuencia de envío...");
-            const formData = new FormData(form);
-            const params = new URLSearchParams(formData);
-            try {
-                await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() });
-                addLog("Transmisión finalizada.", "success");
-                document.getElementById('overlay-content').innerHTML = `<i data-lucide="shield-check" class="w-12 h-12 text-[#38b9c1] mb-6"></i><h4 class="text-white text-xl font-black outfit mb-2 uppercase">Conexión Establecida</h4><p class="text-zinc-500 text-[10px] tracking-widest uppercase font-mono">Nodo sincronizado con éxito</p>`;
-                lucide.createIcons(); form.reset();
-                setTimeout(() => { overlay.classList.add('hidden'); overlay.classList.remove('flex'); }, 5000);
-            } catch (error) {
-                addLog(`ERROR: ${error.message}`, 'error'); overlay.classList.add('hidden');
-            }
-        };
 
         window.onload = () => { lucide.createIcons(); renderGallery(); };
     </script>
