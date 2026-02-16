@@ -125,32 +125,34 @@
         
         <!-- Hero Section -->
         <section id="inicio" class="relative min-h-screen flex flex-col items-center justify-center pt-20 px-4 md:px-6 overflow-hidden">
-            <div class="relative w-full max-w-7xl aspect-[4/5] sm:aspect-video md:aspect-[21/9] shadow-[0_0_60px_rgba(0,0,0,1)] tech-border group bg-black">
-                <!-- Imagen con opacidad controlada para que el fondo negro cubra -->
-                <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:opacity-60 transition-all duration-1000 scale-105 group-hover:scale-100 z-0"
+            <!-- Ajuste Mobile: min-h para evitar solapamiento -->
+            <div class="relative w-full max-w-7xl min-h-[550px] sm:aspect-video md:aspect-[21/9] shadow-[0_0_60px_rgba(0,0,0,1)] tech-border group bg-black overflow-hidden">
+                <!-- Imagen con opacidad controlada -->
+                <div class="absolute inset-0 bg-cover bg-center grayscale opacity-40 group-hover:opacity-50 transition-all duration-1000 scale-105 group-hover:scale-100 z-0"
                      style="background-image: url('https://lh3.googleusercontent.com/pw/AP1GczN46QhGHyQOfMfn7-13xrLhB62KHZue6mccEYbkUAMBWw4cWyuaKy6yIawhSVsOgEYGExnzQ_4wag5emIcs9eQGVcqLzUnNLChVwCyzgvy2YSqByL7yyhUJz1fzg3jgACMLTEv9vc-XL4C2dI5zLbbp=w1620-h911-s-no-gm?authuser=1');">
                 </div>
                 
                 <!-- Overlays de profundidad -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 z-10"></div>
-                <div class="absolute inset-0 bg-black/20 z-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-100 z-10"></div>
+                <div class="absolute inset-0 bg-black/30 z-10"></div>
 
-                <!-- Contenedor de Texto -->
+                <!-- Contenedor de Texto: Ajustado para mobile -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center z-20 p-6 md:p-12 text-center pointer-events-none">
-                    <div class="w-full max-w-[180px] sm:max-w-xs md:max-w-xl mb-6 md:mb-10 opacity-100">
+                    <div class="w-full max-w-[160px] sm:max-w-xs md:max-w-xl mb-8 md:mb-12 opacity-100">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczOd7hXTzsx7OicE7a2ZrqmLnci2SQ3HsYgtVF63sKyMcQT5bAeNfdpqaGE6-X9RltRyCvqtju_HhOLvx9iRMuhl7ZzN7mtjFO1kvwUGsLpSUHFGbAM1qeX8ND1m9YYWrDYmlLYmfZgQsJzrr2aCaXDp=w1920-h541-s-no-gm?authuser=1" 
-                             class="w-full h-auto brightness-200 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                             class="w-full h-auto brightness-200 drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] mx-auto">
                     </div>
                     
-                    <div class="fade-in">
+                    <div class="fade-in space-y-6">
                         <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase outfit leading-[0.85] italic text-white drop-shadow-2xl">
                             ESTUDIO VISUAL <br>
                             <span class="text-[#38b9c1] drop-shadow-[0_0_25px_rgba(56,185,193,0.6)]">AVANZADO</span>
                         </h2>
-                        <div class="mt-8 flex flex-col items-center gap-4">
+                        
+                        <div class="flex flex-col items-center gap-4">
                             <div class="w-12 h-[1px] bg-[#38b9c1]/50 hidden md:block"></div>
-                            <span class="font-mono text-[10px] md:text-[11px] tracking-[0.15em] md:tracking-[0.2em] uppercase font-bold text-[#38b9c1] px-4 max-w-[280px] md:max-w-none">
-                                NUEVAS FORMAS DE CREAR // DRONE · 360 · FOTO · IA
+                            <span class="font-mono text-[9px] md:text-[11px] tracking-[0.15em] md:tracking-[0.2em] uppercase font-bold text-[#38b9c1] px-4 max-w-[300px] md:max-w-none leading-relaxed">
+                                NUEVAS FORMAS DE CREAR // <br class="md:hidden"> DRONE · 360 · FOTO · IA
                             </span>
                             <div class="w-12 h-[1px] bg-[#38b9c1]/50 hidden md:block"></div>
                         </div>
@@ -186,19 +188,19 @@
                 </div>
                 <div class="grid grid-cols-2 gap-3 md:gap-4 text-center">
                     <div class="border border-white/5 p-6 md:p-8 flex flex-col items-center justify-center bg-white/[0.02]">
-                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest">100%</span>
+                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest uppercase">100%</span>
                         <span class="text-[9px] md:text-[10px] font-mono text-zinc-500 mt-2 uppercase tracking-tighter">FIDELIDAD RAW</span>
                     </div>
                     <div class="border border-white/5 p-6 md:p-8 flex flex-col items-center justify-center bg-white/[0.02]">
-                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest">60+</span>
+                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest uppercase">60+</span>
                         <span class="text-[9px] md:text-[10px] font-mono text-zinc-500 mt-2 uppercase tracking-tighter">FRAME RATE</span>
                     </div>
                     <div class="border border-white/5 p-6 md:p-8 flex flex-col items-center justify-center bg-white/[0.02]">
-                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest">4K</span>
+                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest uppercase">4K</span>
                         <span class="text-[9px] md:text-[10px] font-mono text-zinc-500 mt-2 uppercase tracking-tighter">RESOLUCIÓN</span>
                     </div>
                     <div class="border border-white/5 p-6 md:p-8 flex flex-col items-center justify-center bg-white/[0.02]">
-                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest">MAX</span>
+                        <span class="text-2xl md:text-4xl font-black outfit text-white tracking-widest uppercase">MAX</span>
                         <span class="text-[9px] md:text-[10px] font-mono text-zinc-500 mt-2 uppercase tracking-tighter">ESTABILIDAD</span>
                     </div>
                 </div>
